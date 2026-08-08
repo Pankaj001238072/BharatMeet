@@ -132,8 +132,7 @@
   }
 }
 
-.landingPageContainer nav .navlist > p,
-.landingPageContainer nav .navlist > div {
+.landingPageContainer nav .navlist > p {
   transition: all 0.2s ease;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -143,25 +142,17 @@
 }
 
 @media (hover: hover) {
-  .landingPageContainer nav .navlist > p:hover,
-  .landingPageContainer nav .navlist > div:hover {
+  .landingPageContainer nav .navlist > p:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #FF9839;
     transform: translateY(-2px);
   }
-  .landingPageContainer nav .navlist > div:hover p {
-    color: #FF9839;
-  }
 }
 
-.landingPageContainer nav .navlist > p:active,
-.landingPageContainer nav .navlist > div:active {
+.landingPageContainer nav .navlist > p:active {
   background: rgba(255, 255, 255, 0.2);
   color: #FF9839;
   transform: translateY(0);
-}
-.landingPageContainer nav .navlist > div:active p {
-  color: #FF9839;
 }
 
 

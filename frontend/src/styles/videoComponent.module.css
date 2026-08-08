@@ -378,7 +378,7 @@
 
 @media (max-width: 720px) {
   .lobbyContainer {
-    padding: 18px;
+    padding: 64px 18px 36px 18px;
   }
 
   .lobbyCard {

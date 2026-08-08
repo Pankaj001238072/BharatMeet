@@ -131,9 +131,10 @@ export default function Authentication() {
             },
             flexGrow: 1,
             display: "flex",
-            alignItems: "center",
+            alignItems: { xs: "flex-start", sm: "center" },
             justifyContent: "center",
             position: "relative",
+            pt: { xs: "72px", sm: "0px" },
           }}
         >
           <div className="aurora-blob"></div>
