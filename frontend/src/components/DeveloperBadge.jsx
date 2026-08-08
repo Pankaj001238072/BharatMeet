@@ -5,7 +5,7 @@ export default function DeveloperBadge({ position = 'right', hideOnMobile = fals
   return (
     <Box sx={{
       position: 'fixed',
-      bottom: { xs: '6px', sm: '20px' },
+      bottom: { xs: '4px', sm: '20px' },
       ...(position === 'left' ? { left: { xs: '6px', sm: '20px' } } : { right: { xs: '6px', sm: '20px' } }),
       background: 'rgba(255,255,255,0.1)',
       backdropFilter: 'blur(10px)',

@@ -64,7 +64,7 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <CopyrightFooter sx={{ position: "relative", bottom: "auto", transform: "none", left: "auto", marginTop: "20px", paddingBottom: "20px" }} />
+      <CopyrightFooter sx={{ position: "relative", bottom: "auto", transform: "none", left: "auto", marginTop: "20px", paddingBottom: { xs: "40px", sm: "20px" } }} />
 
       <DeveloperBadge />
 

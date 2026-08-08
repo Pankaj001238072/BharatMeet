@@ -134,7 +134,8 @@ export default function Authentication() {
             alignItems: { xs: "flex-start", sm: "center" },
             justifyContent: "center",
             position: "relative",
-            pt: { xs: "72px", sm: "0px" },
+            pt: { xs: formState === 0 ? "152px" : "72px", sm: "0px" },
+            transition: "padding-top 0.3s ease",
           }}
         >
           <div className="aurora-blob"></div>

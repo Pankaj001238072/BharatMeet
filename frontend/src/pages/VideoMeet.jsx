@@ -1035,7 +1035,7 @@ export default function VideoMeetComponent() {
               </div>
             </div>
           </div>
-          <CopyrightFooter sx={{ position: "static", transform: "none", marginTop: "auto" }} />
+          <CopyrightFooter sx={{ position: "static", transform: "none", marginTop: "auto", paddingBottom: { xs: "40px", sm: "0px" } }} />
           <DeveloperBadge />
         </div>
       ) : (

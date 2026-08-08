@@ -332,7 +332,7 @@ export default function History() {
                     </div>
                 )}
             </main>
-            <CopyrightFooter sx={{ position: "relative", bottom: "auto", transform: "none", left: "auto", marginTop: "1px", paddingBottom: "20px" }} />
+            <CopyrightFooter sx={{ position: "relative", bottom: "auto", transform: "none", left: "auto", marginTop: "1px", paddingBottom: { xs: "40px", sm: "20px" } }} />
             <DeveloperBadge />
         </div>
     )
