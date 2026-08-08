@@ -1,6 +1,8 @@
 // DNS fix: Force Google DNS so MongoDB SRV records resolve correctly
 import dns from "node:dns";
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+if (process.env.NODE_ENV !== "production") {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+}
 
 import dotenv from "dotenv";
 dotenv.config();

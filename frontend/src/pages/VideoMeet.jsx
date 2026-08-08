@@ -1077,6 +1077,7 @@ export default function VideoMeetComponent() {
                     variant="outlined"
                     size="small"
                     fullWidth
+                    autoComplete="off"
                     sx={{
                       "& .MuiInputLabel-root": { color: "rgba(255,255,255,0.7)" },
                       "& .MuiInputLabel-root.Mui-focused": { color: "#FF9839" },
@@ -1086,6 +1087,10 @@ export default function VideoMeetComponent() {
                         "& fieldset": { borderColor: "rgba(255, 255, 255, 0.12)", borderRadius: "10px" },
                         "&:hover fieldset": { borderColor: "rgba(255, 152, 57, 0.6)" },
                         "&.Mui-focused fieldset": { borderColor: "#FF9839" },
+                      },
+                      "& input:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #151525 inset !important",
+                        WebkitTextFillColor: "white !important",
                       }
                     }}
                   />
