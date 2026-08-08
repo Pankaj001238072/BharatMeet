@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Premium Aurora Background Animation */
+.aurora-bg {
+  position: relative;
+  background-color: #030014 !important; /* Deep dark space blue */
+  overflow: hidden;
+  z-index: 1;
+}
+
+.aurora-bg::before,
+.aurora-bg::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.aurora-bg::before {
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.18) 0%, transparent 50%); /* Cyan */
+  top: -30%;
+  left: -20%;
+  animation: aurora-move 18s ease-in-out infinite alternate;
+}
+
+.aurora-bg::after {
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.18) 0%, transparent 50%); /* Purple */
+  bottom: -30%;
+  right: -20%;
+  animation: aurora-move 22s ease-in-out infinite alternate-reverse;
+}
+
+.aurora-blob {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 152, 57, 0.12) 0%, transparent 60%); /* BharatMeet Orange */
+  top: 10%;
+  right: -10%;
+  animation: aurora-move 28s linear infinite alternate;
+}
+
+@keyframes aurora-move {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(-10%, 15%) scale(1.1) rotate(15deg); }
+  66% { transform: translate(10%, -5%) scale(0.9) rotate(-15deg); }
+  100% { transform: translate(-5%, 5%) scale(1.05) rotate(5deg); }
+}
