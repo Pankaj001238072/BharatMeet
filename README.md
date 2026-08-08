@@ -10,7 +10,7 @@
 
 ---
 
-🌐 **🚀 Live Demo:** [Add your Render Live Link Here]
+🌐 **🚀 Live Demo:** https://bharatmeet-app.onrender.com  
 📌 **GitHub Repo:** https://github.com/Pankaj001238072/BharatMeet
 
 ---
