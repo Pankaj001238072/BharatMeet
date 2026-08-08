@@ -41,6 +41,7 @@ export default function VideoMeetComponent() {
   // effectiveRoomRef stores the actual room path to use for socket join-call.
   // For /join guests, this is set to the entered room code before connecting.
   let effectiveRoomRef = useRef(null);
+  let screenStreamRef = useRef(null);
 
   const { url } = useParams(); // undefined when on /join route
   const navigate = useNavigate();
@@ -138,7 +139,12 @@ export default function VideoMeetComponent() {
           .getDisplayMedia({ video: true, audio: true })
           .then(getDislayMediaSuccess)
           .then((stream) => {})
-          .catch((e) => console.log(e));
+          .catch((e) => {
+            console.log(e);
+            setScreen(false);
+          });
+      } else {
+        setScreen(false);
       }
     }
   };
@@ -308,6 +314,7 @@ export default function VideoMeetComponent() {
   let getDislayMediaSuccess = (stream) => {
     //ye function screen share ke liye permission mangta hai. Agar user ne access diya hai to local video stream set kar deta hai aur server ko signal bhejta hai. Agar user ne access nahi diya hai to local video stream ko stop kar deta hai.
     console.log("HERE");
+    screenStreamRef.current = stream;
     try {
       window.localStream
         .getTracks()
@@ -350,6 +357,7 @@ export default function VideoMeetComponent() {
             return;
           }
 
+          screenStreamRef.current = null;
           setScreen(false);
 
           try {
@@ -584,7 +592,26 @@ export default function VideoMeetComponent() {
 
   useEffect(() => {
     if (screen !== undefined) {
-      getDislayMedia();
+      if (screen) {
+        getDislayMedia();
+      } else {
+        if (screenStreamRef.current) {
+          try {
+            screenStreamRef.current.getTracks().forEach((track) => track.stop());
+          } catch (e) {
+            console.log(e);
+          }
+          screenStreamRef.current = null;
+          
+          let blackSilence = (...args) =>
+            new MediaStream([black(...args), silence()]);
+          window.localStream = blackSilence();
+          if (localVideoref.current) {
+            localVideoref.current.srcObject = window.localStream;
+          }
+          getUserMedia();
+        }
+      }
     }
   }, [screen]);
   let handleScreen = () => {
@@ -594,9 +621,9 @@ export default function VideoMeetComponent() {
   let handleEndCall = () => {
     cleanupSession();
     if (localStorage.getItem("token")) {
-      window.location.href = "/home";
+      navigate("/home");
     } else {
-      window.location.href = "/";
+      navigate("/");
     }
   };
 
